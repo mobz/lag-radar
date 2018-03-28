@@ -97,7 +97,7 @@ export default function lagRadar( config = {} ) {
 
   animate();
 
-  return function destory() {
+  return function destroy() {
     if(frame) {
       window.cancelAnimationFrame(frame);
     }
