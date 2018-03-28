@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lag Radar</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <h1>Lag Radar</h1>
+    <div id="lagger">
+      Induce Lag:
+      <input id="lag" type="range" min="0" max="1000" value="0">
+      <span id="val">0</span>ms
+    </div>
+
+    <script type="module">
+
+import lagRadar from './lag-radar.js';
+
+const destroy = lagRadar();
+
+// document.body.addEventListener('click', destroy );
+
+setInterval(() => {
+  let lag = document.getElementById('lag').value;
+  document.getElementById('val').textContent = lag;
+  const t1 = parseInt(lag, 10) + Date.now();
+  while( Date.now() < t1 );
+}, 1);
+
+    </script>
+  </body>
+</html>
