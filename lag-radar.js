@@ -49,7 +49,6 @@ export default function lagRadar( config = {} ) {
 
   parent.appendChild($root);
 
-  const arcs = [];
   let frame;
   let framePtr = 0;
   let last = {
