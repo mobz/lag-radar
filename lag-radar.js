@@ -51,8 +51,8 @@ export default function lagRadar( config = {} ) {
 
   const arcs = [];
   let frame;
-  let arcPtr = 0;
-  arcs[arcPtr] = {
+  let framePtr = 0;
+  let last = {
     rotation: 0,
     now: Date.now(),
     tx: middle + radius,
@@ -71,7 +71,6 @@ export default function lagRadar( config = {} ) {
 
   function animate() {
     const now = Date.now();
-    const last = arcs[arcPtr % frames];
     const rdelta = Math.min(PI2 - speed, speed * (now - last.now));
     const rotation = (last.rotation + rdelta) % PI2;
     const tx = middle + radius * Math.cos(rotation);
@@ -80,17 +79,17 @@ export default function lagRadar( config = {} ) {
     const path = `M${tx} ${ty}A${radius} ${radius} 0 ${bigArc} 0 ${last.tx} ${last.ty}L${middle} ${middle}`;
     const hue = calcHue(rdelta/speed);
 
-    $arcs[arcPtr % frames].setAttribute('d', path);
-    $arcs[arcPtr % frames].setAttribute('fill', `hsl(${hue}, 80%, 40%)`);
+    $arcs[framePtr % frames].setAttribute('d', path);
+    $arcs[framePtr % frames].setAttribute('fill', `hsl(${hue}, 80%, 40%)`);
     $hand.setAttribute('d', `M${middle} ${middle}L${tx} ${ty}`);
     $hand.setAttribute('stroke', `hsl(${hue}, 80%, 60%)`);
 
     for (let i = 0; i < frames; i++) {
-      $arcs[(frames + arcPtr - i) % frames].style.fillOpacity = 1 - (i/frames);
+      $arcs[(frames + framePtr - i) % frames].style.fillOpacity = 1 - (i/frames);
     }
 
-    arcPtr++;
-    arcs[arcPtr % frames] = { now, rotation, tx, ty };
+    framePtr++;
+    last = { now, rotation, tx, ty };
 
     frame = window.requestAnimationFrame(animate);
   }
