@@ -5,6 +5,8 @@
 Add this to any javascript application and you can see when the app drops below
 60fps as the radar sweep changes colour and gets janky.
 
+[Demo](https://mobz.github.io/lag-radar/)
+
 ## Usage
 
 The radar is published as a zero dependency es6 javascript module.
