@@ -2,8 +2,7 @@
 
 > It's a sexy little lag radar for demonstrating performance - or lack of.
 
-Add this to any javascript application and you can see when the app drops below
-60fps as the radar sweep changes colour and gets janky.
+LagRadar allows user to receive a visual indication when framrate drops below 60FPS.
 
 [Demo](https://mobz.github.io/lag-radar/)
 
