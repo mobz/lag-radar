@@ -20,12 +20,13 @@ const destroy = lagRadar();
 
 // document.body.addEventListener('click', destroy );
 
-setInterval(() => {
+(function lagMe() {
   let lag = document.getElementById('lag').value;
   document.getElementById('val').textContent = lag;
   const t1 = parseInt(lag, 10) + Date.now();
   while( Date.now() < t1 );
-}, 1);
+  window.requestAnimationFrame(lagMe);
+})();
 
     </script>
   </body>
