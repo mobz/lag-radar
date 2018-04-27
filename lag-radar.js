@@ -12,7 +12,7 @@ export default function lagRadar( config = {} ) {
     parent = document.body, // DOM node to attach to
   } = config;
 
-  const svgns = 'http://www.w3.org/2000/svg';
+  const svgns = 'http:\/\/www.w3.org/2000/svg';
 
   const styles = document.createTextNode(`
     .lagRadar-sweep > * {

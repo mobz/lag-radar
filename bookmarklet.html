@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lag Radar - Bookmarklet</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="shortcut icon" type="image/png" href="./lag-radar.png">
+    <style>
+      #bookmarklet {
+        display: block;
+        border: 1px solid #2a2;
+        width: 300px;
+        margin: 30px auto;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        text-decoration: none;
+      }
+      #bookmarklet:hover {
+        background: #183018;
+      }
+      #bookmarklet::after {
+        content: "Drag this to your Bookmark Bar";
+        margin: 10px;
+        display: block;
+        font-size: 75%;
+        color: #aaa;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lag Radar - Bookmarklet</h1>
+    <a href="#" id="bookmarklet">Lag Radar</a>
+    <script type="module">
+
+import lagRadar from './lag-radar.js';
+import lagRadarUI from './lag-radar-ui.js';
+
+function linkSource() {
+  return (
+    'javascript: (function(){'
+    + lagRadar.toString() + ';'
+    + lagRadarUI.toString() + ';'
+    + 'lagRadarUI();'
+    + '})()'
+  ).replace(/\/\/.*/g, '').replace(/\s+/gm, ' ');
+}
+
+document.querySelector('#bookmarklet').setAttribute('href', linkSource());
+
+    </script>
+
+
+
+  </body>
+</html>
