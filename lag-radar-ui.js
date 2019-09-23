@@ -11,28 +11,28 @@ export default function lagRadarUI() {
   }
   const $style = document.createElement('style');
   $style.appendChild(document.createTextNode(`
-    BODY #lagRadarBM.lagRadarBM-radar {
+    BODY #lagRadarUI.lagRadarUI-radar {
       font-family: Futura, "Trebuchet MS", sans-serif;
       font-style: normal;
       text-align: center;
       font-size: 16px;
     }
-    .lagRadarBM-radar {
+    .lagRadarUI-radar {
       position: fixed;
       z-index: 999999;
       top: 100px;
       left: 100px;
       user-select: none;
     }
-    .lagRadarBM-radar.active {
+    .lagRadarUI-radar.active {
       outline: 3px dotted rgba(100,100,100,0.5);
       cursor: ns-resize;
     }
-    .lagRadarBM-radar.active .lagRadarBM-title,
-    .lagRadarBM-radar:hover .lagRadarBM-title {
+    .lagRadarUI-radar.active .lagRadarUI-title,
+    .lagRadarUI-radar:hover .lagRadarUI-title {
       visibility: visible;
     }
-    .lagRadarBM-title {
+    .lagRadarUI-title {
       position: absolute;
       display: flex;
       width: 210px;
@@ -48,43 +48,43 @@ export default function lagRadarUI() {
       border-radius: 10px;
       opacity: 0.85;
     }
-    .lagRadarBM-title > * {
+    .lagRadarUI-title > * {
       padding: 0 10px;
     }
-    .lagRadarBM-title > .active,
-    .lagRadarBM-title > *:hover {
+    .lagRadarUI-title > .active,
+    .lagRadarUI-title > *:hover {
       background: #4a0;
       color: #efd;
     }
-    .lagRadarBM-title > *:first-child {
+    .lagRadarUI-title > *:first-child {
       border-radius: 8px 0 0 8px;
     }
-    .lagRadarBM-title > *:last-child {
+    .lagRadarUI-title > *:last-child {
       border-radius: 0 8px 8px 0;
     }
-    .lagRadarBM-close {
+    .lagRadarUI-close {
       cursor: pointer;
     }
-    .lagRadarBM-label {
+    .lagRadarUI-label {
       flex-grow: 1;
       cursor: -webkit-grab;
       cursor: grab;
     }
-    .lagRadarBM-label.active {
+    .lagRadarUI-label.active {
       cursor: -webkit-grabbing;
       cursor: grabbing;
     }
-    .lagRadarBM-rsize {
+    .lagRadarUI-rsize {
       line-height: 19px;
       cursor: ns-resize;
     }
-    .lagRadarBM-sweep {
+    .lagRadarUI-sweep {
       pointer-events: none;
     }
   `));
   function $e(cls, children = []) {
     const el = document.createElement('div');
-    el.className = 'lagRadarBM-' + cls;
+    el.className = 'lagRadarUI-' + cls;
     children.forEach( child => el.appendChild( child ) );
     return el;
   }
@@ -96,7 +96,7 @@ export default function lagRadarUI() {
   const $sweep = $e('sweep');
   const $radar = $e('radar', [ $style, $title, $sweep ] );
 
-  $radar.id = 'lagRadarBM';
+  $radar.id = 'lagRadarUI';
   const RESIZE = 1, MOVE = 2;
   let mode = null, origSize = 300, size = 300, offsetX, offsetY;
   const mouseDown = ev => {

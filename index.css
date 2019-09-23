@@ -21,3 +21,11 @@ BODY {
   text-align: right;
   width: 3em;
 }
+
+#link {
+  margin: 6em auto;
+}
+
+A {
+  color: #42f;
+}

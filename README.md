@@ -1,11 +1,12 @@
 # LagRadar
 
-> It's a sexy little lag radar for demonstrating performance - or lack of.
+> It's a sexy little component for demonstrating performance - or lack of in your javascript application.
 
 Add this to any javascript application and you can see when the app drops below
 60fps as the radar sweep changes colour and gets janky.
 
-[Demo](https://mobz.github.io/lag-radar/)
+[Get your live demo](https://mobz.github.io/lag-radar/)
+[Extra awesome as Bookmarklet](https://mobz.github.io/lag-radar/bookmarklet.html)
 
 ## Usage
 

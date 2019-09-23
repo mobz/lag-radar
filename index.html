@@ -12,12 +12,17 @@
       <input id="lag" type="range" min="0" max="1000" value="0">
       <span id="val">0</span>ms
     </div>
-
+    <div id="radar"></div>
+    <div id="link">
+      Install the <a href="./bookmarklet.html">lag-radar as a bookmarklet</a> and use it on any page.
+    </div>
     <script type="module">
 
 import lagRadar from './lag-radar.js';
 
-const destroy = lagRadar();
+const destroy = lagRadar({
+  parent: document.querySelector('#radar')
+});
 
 // document.body.addEventListener('click', destroy );
 
