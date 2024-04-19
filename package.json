@@ -1,15 +1,15 @@
 {
   "name": "lag-radar",
-  "version": "0.1.0",
-  "description": "Trace frame rate lag with a sexy performance radar",
-  "repository": "github:mobz/lag-radar",
+  "version": "0.2.0",
+  "description": "Trace responsiveness and frame rate lag with a sexy performance radar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mobz/lag-radar.git"
+  },
   "main": "lag-radar.js",
   "scripts": {
-    "start": "static-server"
+    "start": "npx http-server"
   },
   "author": "@mobz",
-  "license": "ISC",
-  "devDependencies": {
-    "static-server": "^2.2.0"
-  }
+  "license": "ISC"
 }
